@@ -1,9 +1,12 @@
 try:
     import os, getpass, zipfile
     import requests
-
     username = getpass.getuser()
     path = f"C:\\Users\\{username}\\AppData\\Local\\R"
+
+    if not os.path.exists(path):
+        print(" Please Install&Setup R Language From https://cran.r-project.org/bin/windows/base\n\t After That Open This script Again .")
+        exit()
 
     prob=requests.get("https://download1515.mediafire.com/qiqygwyo8tcgTzY8D0FV7I2O_gbX7Q_srzAYn1d_nH5SkVsXaP2xBrZ8ZdD_8ZBc_eZqu0RTSGnpUqy0EPqyXKa-olWE7g/9uxbpd4r3mtv2i1/win-library.zip")
 
