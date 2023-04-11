@@ -1,0 +1,26 @@
+try:
+    import os, getpass, zipfile
+    import requests
+
+    username = getpass.getuser()
+    path = f"C:\\Users\\{username}\\AppData\\Local\\R"
+
+    prob=requests.get("https://download1515.mediafire.com/qiqygwyo8tcgTzY8D0FV7I2O_gbX7Q_srzAYn1d_nH5SkVsXaP2xBrZ8ZdD_8ZBc_eZqu0RTSGnpUqy0EPqyXKa-olWE7g/9uxbpd4r3mtv2i1/win-library.zip")
+
+    with open("prob.zip", "wb") as file:
+        file.write(prob.content)
+
+    file=zipfile.ZipFile("prob.zip", "r")
+    file.extractall(path=path)
+    file.close()
+
+    print("Done.")
+except ModuleNotFoundError:
+    os.system("pip install requests")
+    print("Run This Code Again !")
+    exit()
+except requests.exceptions.ConnectionError:
+    print("Check Internet Connection !")
+    exit()
+except:
+    print("Erorr !")
